@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title> Ejemplo WebCL</title>
+  <link href="default.css" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900,900italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+
+<script id="clProgramDesaturate" type="text/x-opencl"   src="kernel.js"></script>
+<script                          type="text/javascript" src="functions.js"></script>
+
+</head>
+
+<body>
+<header>
+    <h1>Ejemplo <span class="straight">WebCL</span> — Desaturación</h2>
+      <span class="subtitle">
+        Comparación Serie VS Paralelo
+      </span>
+</header>
+
+<div id="content">
+  <p>
+  Desaturacion de una Imagen.
+  </p>
+ 
+  <div id="ejemplo_serie">
+    <div>
+      <input class="large button blue" type="button" value="Ejecutar en Serie" onclick="desaturate_serie()">
+    </div>
+    <br/>
+    <!-- aqui va la imagen que queremos usar
+    <img id="srcimgSerie" src="betty.jpg" style="display:none;" onload="setupCanvas_serie ();">
+    <canvas id="canvasImgSerie" width='500' height='500'></canvas>
+    <img id="srcimgSerie" src="lena.jpg" style="display:none;" onload="setupCanvas_serie();">
+    <canvas id="canvasImgSerie" width='1084' height='2318'></canvas>
+    -->
+    <img id="srcimgSerie" src="metronomy.jpg" style="display:none;" onload='setupCanvas("canvasImgSerie","2d","srcimgSerie","outputSerie");'>
+    <canvas id="canvasImgSerie" width='800' height='2318'></canvas>
+
+    <!-- salida serie -->
+    <div id="outputSerie" class="log">
+    </div>
+  </div>
+
+  <div id="ejemplo_paralelo">
+    <div>
+    <input type="button" class="large button blue" value="Ejecutar en Paralelo" onclick="CL_desaturate ()">
+    </div>
+    <br/>
+    <!-- aqui va la imagen que queremos usar-->
+    <img id="srcimg" src="metronomy.jpg" style="display:none;" onload='setupCanvas("canvasImg","2d","srcimg","output");'>
+    <canvas id="canvasImg" width='800' height='2318'></canvas>
+
+    <!-- salida paralelo -->
+    <div id="output" class="log">
+    </div>
+  </div>
+
+  </div><!-- end div#content -->
+
+
+
+  <div id="footer-wrapper">
+    <div id="footer">
+      <p id="legal">Copyright &copy; 2012  Fernando Garabato, Mario Pantoja.</p>
+    </div>
+  </div> <!-- end div#footer-wrapper -->
+
+
+
+</body>
+</html>
